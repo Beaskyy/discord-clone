@@ -1,7 +1,7 @@
-import { useSocket } from "@/components/providers/socket-provider";
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { url } from "inspector";
 import qs from "query-string";
+import { useInfiniteQuery } from "@tanstack/react-query";
+
+import { useSocket } from "@/components/providers/socket-provider";
 
 interface ChatQueryProps {
   queryKey: string;
@@ -42,5 +42,11 @@ export const useChatQuery = ({
       refetchInterval: isConnected ? false : 1000,
     });
 
-  return { data, fetchNextPage, hasNextPage, isFetchingNextPage, status };
+  return {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    status,
+  };
 };
